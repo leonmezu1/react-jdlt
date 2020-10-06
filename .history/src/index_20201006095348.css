@@ -21,10 +21,6 @@ h1, h2  {
 }
 .row {
   display: flex;
-  justify-content: space-between;
-}
-.one-half-column{
-  flex-basis: calc(46%);
 }
 .lista-citas .media {
   border-bottom: 1px solid #e1e1e1;

@@ -24,7 +24,7 @@ h1, h2  {
   justify-content: space-between;
 }
 .one-half-column{
-  flex-basis: calc(46%);
+  flex-basis: calc(45%);
 }
 .lista-citas .media {
   border-bottom: 1px solid #e1e1e1;

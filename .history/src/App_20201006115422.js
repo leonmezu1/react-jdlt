@@ -26,7 +26,7 @@ const App = () => {
             <Formulario crearCita={crearCita}/>
           </div>
           <div className="one-half-column">
-            <h1>{citas.length === 0 ? "Agrega una cita" : "Listado"}</h1>
+            <h1>{citas.length > 0 ? "Agrega una cita" : "Listado"}</h1>
             { citas.map(cita => (
               <Cita
                 key={cita.id}

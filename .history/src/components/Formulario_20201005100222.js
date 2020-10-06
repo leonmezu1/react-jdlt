@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from "react";
-import uuid from 'uuid/dist/v4'; //
 
-const Formulario = ({crearCita}) => {
+const Formulario = () => {
   const [cita, actualizarCita] = useState({
     mascota: "",
     propietario: "",
@@ -9,8 +8,6 @@ const Formulario = ({crearCita}) => {
     hora: "",
     sintomas: "",
   });
-
-  const [error, actualizarError] = useState(false)
 
   const { mascota, propietario, fecha, hora, sintomas } = cita;
 
@@ -32,19 +29,7 @@ const Formulario = ({crearCita}) => {
     ];
 
     if (checkEmpty.some((value) => value)) {
-      actualizarError(true);
-      return;
-    } else {
-      actualizarError(false);
-      cita.id = uuid();
-      crearCita(cita);
-      actualizarCita({
-        mascota: "",
-        propietario: "",
-        fecha: "",
-        hora: "",
-        sintomas: "",
-      });
+      console.error("Hay campos vacios");
       return;
     }
   };
@@ -52,8 +37,7 @@ const Formulario = ({crearCita}) => {
   return (
     <Fragment>
       <h1>Formulario</h1>
-      { error ? <p className="alerta-error">Todos los campos son obligatorios</p> : null }
-      <form onSubmit={submitCita}>
+      <form>
         <label>Nombre Mascota</label>
         <input
           type="text"
@@ -95,7 +79,7 @@ const Formulario = ({crearCita}) => {
           onChange={handleChange}
           value={sintomas}
         ></textarea>
-        <button type="submit" className="u-full-width button-primary">
+        <button type="submit" className="u-full-width button-primary" onSubmit={submitCita}>
           Agregar cita
         </button>
       </form>
