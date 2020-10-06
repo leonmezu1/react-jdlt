@@ -8,7 +8,7 @@ const App = () => {
     citasIniciales = [];
   }
 
-  const [citas, guardarCitas] = useState(citasIniciales)
+  const [citas, guardarCitas] = useState([])
 
   useEffect(() =>{
     if(citasIniciales) {

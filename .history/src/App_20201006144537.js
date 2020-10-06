@@ -3,20 +3,11 @@ import Cita from './components/Cita';
 import Formulario from './components/Formulario'
 
 const App = () => {
-  let citasIniciales = JSON.parse(localStorage.getItem('citas'))
-  if(!citasIniciales) {
-    citasIniciales = [];
-  }
-
-  const [citas, guardarCitas] = useState(citasIniciales)
+  const [citas, guardarCitas] = useState([])
 
   useEffect(() =>{
-    if(citasIniciales) {
-      localStorage.setItem('citas', JSON.stringify(citas))
-    } else {
-      localStorage.setItem('citas', JSON.stringify([]))
-    }
-  }, [citas, citasIniciales]) // Si cambia este estado
+    console.log('Documento listo o algo paso con las citas');
+  }, [citas]) // Si cambia este estado
 
   const crearCita = cita => {
     guardarCitas([
